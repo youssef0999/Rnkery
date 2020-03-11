@@ -1,13 +1,13 @@
-package com.example.rnkery.ui.home
+package com.example.rnkery.ui.rankings
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class RankingsViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+        value = "This is rankings Fragment"
     }
     val text: LiveData<String> = _text
 }

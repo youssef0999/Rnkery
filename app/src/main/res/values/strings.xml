@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Rnkery</string>
     <string name="title_rankings">Rankings</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_contact">Contact Us</string>
 </resources>

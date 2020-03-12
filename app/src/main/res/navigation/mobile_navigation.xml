@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_rankings">
+    app:startDestination="@id/navigation_contact">
 
     <fragment
         android:id="@+id/navigation_rankings"
@@ -12,8 +12,8 @@
         tools:layout="@layout/fragment_rankings" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.rnkery.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_contact"
+        android:name="com.example.rnkery.ui.contact.ContactFragment"
+        android:label="@string/title_contact"
+        tools:layout="@layout/fragment_contact" />
 </navigation>

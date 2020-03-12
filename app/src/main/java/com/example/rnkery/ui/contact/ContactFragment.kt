@@ -1,4 +1,4 @@
-package com.example.rnkery.ui.rankings
+package com.example.rnkery.ui.contact
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,21 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.rnkery.R
 
-class RankingsFragment : Fragment() {
 
-    private lateinit var rankingsViewModel: RankingsViewModel
+class ContactFragment : Fragment() {
+
+    private lateinit var contactViewModel: ContactViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        rankingsViewModel =
-            ViewModelProviders.of(this).get(RankingsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_rankings, container, false)
-        val textView: TextView = root.findViewById(R.id.text_rankings)
-        rankingsViewModel.text.observe(viewLifecycleOwner, Observer {
+        contactViewModel =
+            ViewModelProviders.of(this).get(ContactViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_contact, container, false)
+        val textView: TextView = root.findViewById(R.id.text_contact)
+        contactViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

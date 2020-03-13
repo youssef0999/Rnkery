@@ -6,146 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TableLayout
-        android:id="@+id/theTable"
+    <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent" />
 
-
-        <TableRow
-            android:id="@+id/firstRow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="parent">
-
-            <TextView
-                android:id="@+id/tokyoTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="bottom"
-                android:minHeight="80dp"
-                android:paddingStart="16dp"
-                android:paddingLeft="16dp"
-                android:paddingEnd="16dp"
-                android:paddingRight="16dp"
-                android:text="Tokyo Qualifiers"
-                android:textAlignment="gravity"
-                android:textSize="40sp" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/secondRow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/firstRow">
-
-
-            <co.ceryle.segmentedbutton.SegmentedButtonGroup
-                android:id="@+id/segButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="0dp"
-                app:sbg_animateSelector="bounce"
-                app:sbg_animateSelectorDuration="500"
-                app:sbg_backgroundColor="@android:color/white"
-                app:sbg_dividerColor="@android:color/darker_gray"
-                app:sbg_dividerPadding="10dp"
-                app:sbg_dividerSize="1dp"
-                app:sbg_position="1"
-                app:sbg_radius="20dp"
-                app:sbg_ripple="true"
-                app:sbg_rippleColor="@android:color/darker_gray"
-                app:sbg_selectorColor="@android:color/darker_gray"
-                app:sbg_selectorTextColor="@android:color/white"
-                app:sbg_shadow="true"
-                app:sbg_shadowElevation="3dp"
-                app:sbg_shadowMargin="4dp"
-                tools:layout_editor_absoluteX="16dp">
-
-
-                <Button
-                    android:id="@+id/maleButt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:minHeight="10dp"
-                    android:text="Male"
-                    android:textAllCaps="true" />
-
-                <Button
-                    android:id="@+id/femaleButt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:minHeight="10dp"
-                    android:text="FEMale"
-                    android:textAllCaps="true" />
-            </co.ceryle.segmentedbutton.SegmentedButtonGroup>
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/thirdRow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/secondRow">
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Weight"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="-54 kg >"
-                android:textSize="20sp" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/fourthRow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/thirdRow">
-
-            <Button
-                android:id="@+id/butRankings"
-                android:text="Show Rankings"
-                android:textSize="24sp" />
-        </TableRow>
-    </TableLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:background="?android:attr/windowBackground"
+        android:id="@+id/navigationView"
+            android:layout_width="match_parent"
+        android:layout_weight="1"
+            android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:itemBackground="@color/colorPrimary"
+        app:itemIconTint="#fff"
+        app:itemTextColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
-
-    <fragment
-        android:id="@+id/nav_host_fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@id/nav_view"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/mobile_navigation" />
-
+        app:menu="@menu/bottom_menu" />
 </androidx.constraintlayout.widget.ConstraintLayout>

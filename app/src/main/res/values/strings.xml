@@ -2,4 +2,8 @@
     <string name="app_name">Rnkery</string>
     <string name="title_rankings">Rankings</string>
     <string name="title_contact">Contact Us</string>
+    <string name="getouch">Get in touch!</string>
+    <string name="tohelp">We are here to help.</string>
+    <string name="message">SEND MESSAGE</string>
+    <string name="backsoon">We\'ll get back to you soon</string>
 </resources>

@@ -1,49 +1,50 @@
 package com.example.rnkery
 
 import android.os.Bundle
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
 
-    lateinit var toolbar: ActionBar
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //NAV BAR SETTINGS//
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
-        val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_rankings, R.id.navigation_contact
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
-        //NAV BAR SETTINGS//
+        val fragment = RankingsFragment()
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.container, fragment)
+        transaction.commit()
 
-        //SEGMENTED CONTROL STATES//
-        segButton.setOnClickedButtonPosition {
-            fun onClickedButtonPosition(position: Int) {
+        //NAVBAR
+        title = resources.getString(R.string.title_rankings)
+        loadFragment(RankingsFragment())
+        navigationView.setOnNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.navigation_rankings -> {
+                    title = resources.getString(R.string.title_rankings)
+                    loadFragment(RankingsFragment())
+                    return@setOnNavigationItemSelectedListener true
+                }
 
-                if (position == 0) {/*do things here*/ }
-                else if (position == 1) {/*do other things here*/ }
-
+                R.id.navigation_contact -> {
+                    title = resources.getString(R.string.title_contact)
+                    loadFragment(ContactFragment())
+                    return@setOnNavigationItemSelectedListener true
+                }
             }
+            false
 
         }
-        //SEGMENTED CONTROL STATES//
+    }
 
+    private fun loadFragment(fragment: Fragment) {
+        // load fragment
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.container, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 }
 

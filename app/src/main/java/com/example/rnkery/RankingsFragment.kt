@@ -14,12 +14,12 @@ class RankingsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val v = inflater.inflate(R.layout.fragment_rankings, container, false)
+        val v = inflater.inflate(R.layout.fragment_rankings, null, false)
 
         val tv = v.findViewById<View>(R.id.ButtonToWeights) as Button
 
         tv.setOnClickListener {
-            val fragment = WeightFragmentM()
+            val fragment = WeightsFragment()
             val fragmentManager = activity!!.supportFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
             fragmentTransaction.replace(R.id.container, fragment)

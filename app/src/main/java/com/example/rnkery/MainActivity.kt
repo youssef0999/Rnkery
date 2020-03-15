@@ -12,6 +12,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val fragment2 = WeightsFragment()
+        val transaction2 = supportFragmentManager.beginTransaction()
+        transaction2.replace(R.id.container, fragment2)
+        transaction2.commit()
+
         val fragment = RankingsFragment()
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.container, fragment)

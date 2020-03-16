@@ -20,17 +20,17 @@ class WeightsFragment : Fragment() {
         var mweights = arrayOf("58- Kg", "68- Kg", "80- Kg", "87+ Kg")
         var fweights = arrayOf("49- Kg", "59- Kg", "67- Kg", "74+ Kg")
         val checkbox = rootView.findViewById<CheckBox>(R.id.cb)
-        val mylistview = rootView.findViewById(R.id.mylistview) as ListView
+        val mylistview = rootView.findViewById(R.id.weightslistview) as ListView
         mylistview.adapter =
             ArrayAdapter<String>(activity!!, R.layout.weightslistlayout, R.id.tv, mweights)
 
-        mylistview.setOnItemClickListener { adapterView,
-                                            view,
+        mylistview.setOnItemClickListener { _,
+                                            _,
                                             position,
-                                            l
+                                            _
             ->
             Toast.makeText(activity, mweights[position], Toast.LENGTH_SHORT).show()
-            val fragment = RankingsFragment()
+            val fragment = HomeFragment()
             val fragmentManager = activity!!.supportFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
             fragmentTransaction.replace(R.id.container, fragment)

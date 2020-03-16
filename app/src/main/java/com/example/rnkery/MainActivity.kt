@@ -17,19 +17,24 @@ class MainActivity : AppCompatActivity() {
         transaction2.replace(R.id.container, fragment2)
         transaction2.commit()
 
-        val fragment = RankingsFragment()
+        val fragment3 = RankingsFragment()
+        val transaction3 = supportFragmentManager.beginTransaction()
+        transaction3.replace(R.id.container, fragment3)
+        transaction3.commit()
+
+        val fragment = HomeFragment()
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.container, fragment)
         transaction.commit()
 
         //NAVBAR
         title = resources.getString(R.string.title_rankings)
-        loadFragment(RankingsFragment())
+        loadFragment(HomeFragment())
         navigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.navigation_rankings -> {
                     title = resources.getString(R.string.title_rankings)
-                    loadFragment(RankingsFragment())
+                    loadFragment(HomeFragment())
                     return@setOnNavigationItemSelectedListener true
                 }
 

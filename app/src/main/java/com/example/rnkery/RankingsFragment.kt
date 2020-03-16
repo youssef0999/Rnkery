@@ -4,39 +4,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
 
+//A JASON FILE NAMED Athletes.json IN assets FOLDER TO BE USED AS DUMMY DATA FOR THE RANKINGS LIST
+//A JSON READER AND ADAPTER NEEDS TO BE IMPLEMETED TO READ THE FILE FROM JSON
+//TEXT READ FROM JSON WILL BE PUT INTO LIST IDS (rank, name, country, points)
+//LATER WE NEED TO IMPLEMENT THE DRAWSHEETFRAGMENT IN THE TOPBAR OF THE SCREEN
 class RankingsFragment : Fragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val rootview = inflater.inflate(R.layout.fragment_rankings, container, false)
 
-        val v = inflater.inflate(R.layout.fragment_rankings, null, false)
 
-        val tv = v.findViewById<View>(R.id.ButtonToWeights) as Button
-
-        tv.setOnClickListener {
-            val fragment = WeightsFragment()
-            val fragmentManager = activity!!.supportFragmentManager
-            val fragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.container, fragment)
-            fragmentTransaction.addToBackStack(null)
-            fragmentTransaction.commit()
-
-        }
-        return v
+        return rootview
     }
-
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        //you can set the title for your toolbar here for different fragments different titles
-        activity!!.title = "Rnker"
-    }
-
 
 }
-
